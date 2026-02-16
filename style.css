@@ -5,3 +5,7 @@
 .card-body {
     margin-top: -50px;
 }
+
+#products-container .card-body {
+    margin-top: 0;
+}
