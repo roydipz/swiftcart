@@ -9,16 +9,27 @@ const loadCat = () => {
 //     console.log(url);
 // }
 
-const loadCatWiseProducts = (name) => {
-  const url = `https://fakestoreapi.com/products/category/${encodeURIComponent(name)}`;
 
-  fetch(url)
-    .then(res => res.json())
-    .then(data => {
-      const productsContainer = document.getElementById('products-container');
-      productsContainer.innerHTML = "";   // clear old products
-      displayProducts(data);
-    });
+const removeActive = () => {
+    const catButtons = document.querySelectorAll(".cat-btn");
+    catButtons.forEach(btn => btn.classList.remove("active"));
+}
+
+const loadCatWiseProducts = (name) => {
+    const url = `https://fakestoreapi.com/products/category/${encodeURIComponent(name)}`;
+
+    fetch(url)
+        .then(res => res.json())
+        .then(data => {
+            removeActive();
+            const productsContainer = document.getElementById('products-container');
+            productsContainer.innerHTML = "";   
+
+            const clickedBtn = document.getElementById(`${name}`);
+            clickedBtn.classList.add("active");
+
+            displayProducts(data);
+        });
 };
 
 
@@ -27,20 +38,20 @@ const displayCat = (categories) => {
     catContainer.innerHTML = "";
 
     const btnAll = document.createElement("div");
-    btnAll.innerHTML = `<button onclick='loadProducts();' class="btn btn-outline rounded-full btn-primary capitalize">All</button>`;
+    btnAll.innerHTML = `<button onclick='loadProducts();' id="all-btn" class="btn btn-outline rounded-full btn-primary capitalize cat-btn">All</button>`;
     catContainer.append(btnAll);
 
     for (let category of categories) {
 
 
         const btnCat = document.createElement("div");
-        btnCat.innerHTML = 
-        // <button onclick="loadCatWiseProducts('${category}');" class="btn btn-outline rounded-full btn-primary capitalize">${category}</button>
-        
-        `
+        btnCat.innerHTML =
+            // <button onclick="loadCatWiseProducts('${category}');" class="btn btn-outline rounded-full btn-primary capitalize">${category}</button>
+
+            `
             
 
-            <button onclick="loadCatWiseProducts(this.dataset.cat)" data-cat="${category}" class="btn btn-outline rounded-full btn-primary capitalize">${category}</button>
+            <button id="${category}" onclick="loadCatWiseProducts(this.dataset.cat)" data-cat="${category}" class="btn btn-outline rounded-full btn-primary capitalize cat-btn">${category}</button>
 
 
         `;
@@ -52,17 +63,50 @@ const displayCat = (categories) => {
 
 };
 
+const showProductDetail = (id) =>{
+    const url=`https://fakestoreapi.com/products/${id}`;
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displayProductDetails(data))
+}
+
+const displayProductDetails = (pro_details) =>{
+    
+
+    const detailsBox = document.getElementById("details-container");
+    detailsBox.innerHTML = `
+
+        <h3 class="text-lg font-bold">${pro_details.title}</h3>
+            <p class="py-4"><b>Description : </b> ${pro_details.description}</p>
+            <p><b>Price : </b> $${pro_details.price}</p>
+            <p><b>Rating : </b> ${pro_details.rating.rate} (${pro_details.rating.count})</p> <br>
+
+            <a class="btn btn-primary btn-sm flex-1 gap-2">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            Add to Cart
+                            </a>
+    
+    `;
+
+    document.getElementById("product_modal").showModal();
+    
+}
+
 const loadProducts = () => {
     fetch("https://fakestoreapi.com/products")
         .then(response => response.json())
-        .then(output => displayProducts(output))
+        .then(output =>{
+            removeActive();
+            document.getElementById("all-btn").classList.add("active");
+            displayProducts(output);
+        } )
 }
 
 const displayProducts = (products) => {
     const productsContainer = document.getElementById('products-container');
     productsContainer.innerHTML = "";
     products.forEach((product) => {
-        
+
 
         const productCard = document.createElement("div");
         productCard.innerHTML = `
@@ -99,7 +143,7 @@ const displayProducts = (products) => {
                     <p class="mt-1 text-base font-bold">$${product.price}</p>
 
                     <!-- Buttons -->
-                    <div class="mt-3 flex items-center gap-2">
+                    <div onclick="showProductDetail(${product.id})" class="mt-3 flex items-center gap-2">
                         <a class="btn btn-outline btn-sm flex-1 gap-2">
                             <i class="fa-regular fa-eye"></i>
                             
