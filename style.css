@@ -10,6 +10,10 @@
     margin-top: 0;
 }
 
+.top-rated .card-body {
+    margin-top: 0;
+}
+
 .active{
     color: #fff;
     background-color: #4f39f6;

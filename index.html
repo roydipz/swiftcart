@@ -31,18 +31,18 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl navbar bg-base-100">
             <div class="navbar-start">
 
-                <a class="text-2xl font-bold text-[#4f39f6]">SwiftCart</a>
+                <a href="index.html" class="text-2xl font-bold text-[#4f39f6]">SwiftCart</a>
             </div>
             <div class="navbar-center hidden lg:flex">
                 <ul class="menu menu-horizontal px-1 font-bold text-md">
-                    <li><a>Home</a></li>
-                    <li><a>Products</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
                     <li><a>About</a></li>
                     <li><a>Contact</a></li>
                 </ul>
             </div>
             <div class="navbar-end">
-                <a><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
 
                 <div class="dropdown">
                     <div tabindex="0" role="button" class="btn btn-ghost btn-circle lg:hidden">
@@ -54,8 +54,8 @@
                     </div>
                     <ul tabindex="-1"
                         class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                        <li><a>Home</a></li>
-                        <li><a>Products</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html">Products</a></li>
                         <li><a>About</a></li>
                         <li><a>Contact</a></li>
                     </ul>
@@ -97,17 +97,15 @@
                 </div>
 
                 <!-- Boxes -->
-                <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 
                     <!-- Box 1 -->
                     <div class="card bg-base-100 border border-base-200">
                         <div class="card-body p-6">
-                            <div class="w-11 h-11 rounded-xl border-1 border-white p-2 bg-[#4f39f6]/10 flex items-center justify-center">
+                            <div
+                                class="w-11 h-11 rounded-xl border-1 border-white p-2 bg-white shadow-sm flex items-center justify-center">
                                 <!-- icon -->
-                                <svg class="w-5 h-5 text-primary" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M3 7h13l3 5v4a2 2 0 0 1-2 2h-1a2 2 0 0 1-4 0H9a2 2 0 0 1-4 0H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z" />
-                                </svg>
+                                <i class="fa-regular fa-truck text-[#4f39f6]"></i>
                             </div>
 
                             <h3 class="mt-4 font-semibold text-base-content">Fast Delivery</h3>
@@ -117,9 +115,141 @@
                         </div>
                     </div>
 
+                    <div class="card bg-base-100 border border-base-200">
+                        <div class="card-body p-6">
+                            <div
+                                class="w-11 h-11 rounded-xl border-1 border-white p-2 bg-white shadow-sm flex items-center justify-center">
+                                <!-- icon -->
+                                <i class="fa-regular fa-headphones text-[#4f39f6]"></i>
+                            </div>
+
+                            <h3 class="mt-4 font-semibold text-base-content">24/7 Support</h3>
+                            <p class="mt-1 text-sm text-base-content/60 leading-relaxed">
+                                Our Support team is available around the clock
+to assist you.                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-base-100 border border-base-200">
+                        <div class="card-body p-6">
+                            <div
+                                class="w-11 h-11 rounded-xl border-1 border-white p-2 bg-white shadow-sm flex items-center justify-center">
+                                <!-- icon -->
+                                <i class="fa-solid fa-shield-halved  text-[#4f39f6]"></i>
+                            </div>
+
+                            <h3 class="mt-4 font-semibold text-base-content">Secure Payment</h3>
+                            <p class="mt-1 text-sm text-base-content/60 leading-relaxed">
+                                Safe & Secure transections with our encrypted system                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card bg-base-100 border border-base-200">
+                        <div class="card-body p-6">
+                            <div
+                                class="w-11 h-11 rounded-xl border-1 border-white p-2 bg-white shadow-sm flex items-center justify-center">
+                                <i class="fa-solid fa-arrows-rotate  text-[#4f39f6]"></i>
+                            </div>
+
+                            <h3 class="mt-4 font-semibold text-base-content">Easy Returns</h3>
+                            <p class="mt-1 text-sm text-base-content/60 leading-relaxed">
+                                Not Satisfied? return your products withion 30 days.                           </p>
+                        </div>
+                    </div>
+
+                   
+
 
                 </div>
             </div>
+        </section>
+
+    </section>
+
+    <section class="trending">
+
+        <section class="py-14 bg-gray-100">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+                <!-- Title -->
+                <div class="text-center">
+                    <h2 class="text-4xl font-bold text-base-content">
+                        Trending Products
+                    </h2>
+                </div>
+
+                <div class="top-rated grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10"></div>
+
+
+
+            </div>
+            </div>
+        </section>
+
+    </section>
+
+
+
+
+
+    <!-- Footer section -->
+
+    <section class="footer-area bg-[#4f39f6] text-white">
+        <footer
+            class="container footer sm:footer-horizontal p-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl  border-b border-gray-200">
+            <aside class="w-100">
+                <a href="index.html" class="text-2xl font-bold text-white">SwiftCart</a>
+                <p>
+                    Discover the latest trends in fashion, electronics, and more. Shop with Confidence and style at SwiftCart. 
+                </p>
+            </aside>
+            <nav>
+                <h6 class="footer-title">Quick Links</h6>
+                <a class="link link-hover" href="index.html">Home</a>
+                    <a class="link link-hover" href="products.html">Products</a>
+                    <a class="link link-hover">About</a>
+                   <a class="link link-hover">Contact</a>
+            </nav>
+            <nav>
+                <h6 class="footer-title">Support</h6>
+                <a class="link link-hover">FAQ</a>
+                <a class="link link-hover">Shipping/a>
+                <a class="link link-hover">Returns</a>
+                <a class="link link-hover">Privacy Policy</a>
+            </nav>
+            <nav>
+                <h6 class="footer-title">NewsLetter</h6>
+                <div class="join">
+  <div>
+    <label class="input validator join-item">
+      
+      <input type="email" placeholder="Enter email address" required />
+    </label>
+    <div class="validator-hint">Enter email address</div>
+  </div>
+  <button class="btn btn-neutral join-item">Subscribe</button>
+</div>
+            </nav>
+        </footer>
+
+        <section id="copyright bg-[#4f39f6] text-white">
+
+        <footer class="footer sm:footer-horizontal text-neutral-content items-center container footer sm:footer-horizontal text-base-content p-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+            <aside class="grid-flow-col items-center">
+                
+                <p>Copyright © 2026 SwiftCart - All right reserved</p>
+            </aside>
+            <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+                <a href="#">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            </nav>
+        </footer>
+
         </section>
 
     </section>

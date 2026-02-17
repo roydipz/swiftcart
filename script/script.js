@@ -168,6 +168,78 @@ const displayProducts = (products) => {
 }
 
 
+//trending products
+
+const loadTrending = () => {
+  fetch("https://fakestoreapi.com/products")
+    .then(res => res.json())
+    .then(products => {
+      const top4 = products.slice(0, 4); // first 4 products
+      displayTrending(top4);
+    });
+};
+
+const displayTrending = (products) => {
+  const topRatedContainer = document.querySelector(".top-rated");
+  if (!topRatedContainer) return; // index.html এ না থাকলে skip
+
+  topRatedContainer.innerHTML = "";
+
+  products.forEach((product) => {
+    const card = document.createElement("div");
+    card.innerHTML = `
+      <div class="card bg-base-100 border border-base-200 shadow-sm">
+        <!-- Product Image -->
+        <figure>
+          <div class="w-full bg-base-200 p-4">
+            <img src="${product.image}" alt="Product" class="h-44 w-full object-contain" />
+          </div>
+        </figure>
+
+        <!-- Card Body -->
+        <div class="card-body p-4 pt-3">
+          <!-- Top row: Category + Rating -->
+          <div class="flex items-center justify-between">
+            <span class="badge badge-primary text-xs rounded-full capitalize">${product.category}</span>
+
+            <div class="flex items-center gap-1 text-xs text-base-content/60">
+              <i class="fa-solid fa-star text-[#ffa534]"></i>
+              <span class="font-medium text-base-content/70">${product.rating.rate}</span>
+              <span>(${product.rating.count})</span>
+            </div>
+          </div>
+
+          <!-- Title -->
+          <h3 class="mt-2 line-clamp-2 text-sm font-semibold">
+            ${product.title}
+          </h3>
+
+          <!-- Price -->
+          <p class="mt-1 text-base font-bold">$${product.price}</p>
+
+          <!-- Buttons (same like your product box) -->
+          <div class="mt-3 flex items-center gap-2">
+            <a onclick="showProductDetail(${product.id})" class="btn btn-outline btn-sm flex-1 gap-2">
+              <i class="fa-regular fa-eye"></i>
+              Details
+            </a>
+
+            <a class="btn btn-primary btn-sm flex-1 gap-2">
+              <i class="fa-solid fa-cart-shopping"></i>
+              Add
+            </a>
+          </div>
+        </div>
+      </div>
+    `;
+    topRatedContainer.append(card);
+  });
+};
+
+
+
 
 
 loadCat();
+loadProducts(); 
+loadTrending();
