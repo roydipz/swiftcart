@@ -186,6 +186,6 @@ const displayTrending = (products) => {
     });
 };
 
+loadTrending();
 loadCat();
 loadProducts();
-loadTrending();
